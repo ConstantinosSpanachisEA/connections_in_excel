@@ -135,5 +135,6 @@ class getConnectionsFromExcelFiles(object):
 
 if __name__ == '__main__':
     import pandas as pd
-    test, failed_file = getConnectionsFromExcelFiles(r'C:\Users\c.spanachis\Downloads').get_connections_from_excel()
-    pd.DataFrame.from_dict(test, orient="index").to_csv("test_1.csv")
+    test, failed_files = getConnectionsFromExcelFiles(r'Z:\1. Research - Oil products\3. Spreadsheets').get_connections_from_excel()
+    pd.DataFrame.from_dict(test, orient="index").transpose().to_csv("refinery_spreadsheets.csv")
+    pd.Series(data=failed_files, name="failed_files").to_csv("refinery_spreadsheets_failed_files.csv")
